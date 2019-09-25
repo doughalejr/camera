@@ -35,7 +35,7 @@ cameraTrigger.onclick = function () {
 	cameraCanvas.getContext("2d").drawImage(imageView, 0, 0); //added by deh
 	//-------------------
     cameraOutput.src = cameraCanvas.toDataURL("image/jpg");
-    cameraOutput.classList.add("taken");
+    //cameraOutput.classList.add("taken");
 
     var container = document.getElementById("camera--output"); //specific element on page
     //var container = document.body; // full page 
