@@ -64,30 +64,4 @@ cameraTrigger.onclick = function () {
     //window.location.href('../Upload.aspx');
 };
 // Start the video stream when the window loads
-window.addEventListener("load", cameraStart, false);
-
-//Adding GPS properties to file in Javascript
-//http://rz.scale-it.pl/2012/01/02/how_to_add_gps__geolocation__tags_to_photos.html
-//https://stackoverflow.com/questions/31628534/get-coordinates-from-photo-with-javascript
-//https://github.com/exif-js/exif-js
-//https://stackoverflow.com/questions/20279620/is-there-any-javascript-library-to-modify-exif-information-of-image
-//1) https://github.com/blueimp/JavaScript-Load-Image
-//2) 
-//https://stackoverflow.com/questions/41318487/adding-metadata-to-html5-file-upload
-//
-//C#
-//https://www.codeproject.com/Questions/815338/Inserting-GPS-tags-into-jpeg-EXIF-metadata-using-n
-//1) https://searchcode.com/codesearch/view/8739374/
-//2) https://blogs.msdn.microsoft.com/kamalds/2012/04/08/working-with-exif-metadata/
-//GeoTagging
-//http://geotag.sourceforge.net/Requirements/
-//https://codeflow.org/tags/geotagging.html
-//https://www.paintshoppro.com/en/pages/geotag-photos/
-//JavaScript
-//https://www.javascripture.com/File
-//
-//Maybe I can hand the Lat - Lng as QueryStrings on the upload, and if present, just use them instead of parsing the file's properties
-//
-//Good basci camera article:
-//https://www.webcodegeeks.com/html5/html5-web-camera-example/
-
+//window.addEventListener("load", cameraStart, false); commented out temporarily by deh
