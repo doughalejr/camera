@@ -1,7 +1,4 @@
-﻿var imported = document.createElement('script');
-imported.src = 'html2canvas.js';
-document.head.appendChild(imported);
-// https://blog.prototypr.io/make-a-camera-web-app-tutorial-part-1-ec284af8dddf
+﻿// https://blog.prototypr.io/make-a-camera-web-app-tutorial-part-1-ec284af8dddf
 // Set constraints for the video stream
 var constraints = { video: { facingMode: "environment" }, audio: false };
 // Define constants
@@ -27,13 +24,13 @@ function cameraStart() {
 
 // Take a picture when cameraTrigger is tapped
 cameraTrigger.onclick = function () {
-    //cameraCanvas.width = cameraView.videoWidth;
-    //cameraCanvas.height = cameraView.videoHeight;
-    //cameraCanvas.getContext("2d").drawImage(cameraView, 0, 0);
+    cameraCanvas.width = cameraView.videoWidth;
+    cameraCanvas.height = cameraView.videoHeight;
+    cameraCanvas.getContext("2d").drawImage(cameraView, 0, 0);
 	//-------------------
-    cameraCanvas.width = imageView.width;//added by deh
-    cameraCanvas.height = imageView.height;//added by deh
-	cameraCanvas.getContext("2d").drawImage(imageView, 0, 0); //added by deh
+    //cameraCanvas.width = imageView.width;//added by deh
+    //cameraCanvas.height = imageView.height;//added by deh
+	//cameraCanvas.getContext("2d").drawImage(imageView, 0, 0); //added by deh
 	//-------------------
     cameraOutput.src = cameraCanvas.toDataURL("image/jpg");
     cameraOutput2.src = cameraCanvas.toDataURL("image/jpg");
@@ -58,4 +55,4 @@ cameraTrigger.onclick = function () {
     //window.location.href('../Upload.aspx');
 };
 // Start the video stream when the window loads
-//window.addEventListener("load", cameraStart, false); commented out temporarily by deh
+window.addEventListener("load", cameraStart, false); commented out temporarily by deh
