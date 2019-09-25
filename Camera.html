@@ -1,26 +1,23 @@
 ﻿<html>
 <head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="./piexif.js"></script>
     <script type="text/javascript">
         //https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
         function getParameterByName(name, url) {
             if (!url) url = window.location.href;
             name = name.replace(/[\[\]]/g, '\\$&');
-            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            var regex = new RegExp('[?&#]' + name + '(=([^&#]*)|&|#|$)'),
                 results = regex.exec(url);
             if (!results) return null;
             if (!results[2]) return '';
             return decodeURIComponent(results[2].replace(/\+/g, ' '));
         }
 
-        var Latitude;
-        var Longitude;
+		var latitude = getParameterByName("lat");
+		var longitude = getParameterByName("lon");
+		alert('Latitude=' + latitude + ' and Longitude=' + longitude);
 
-        function displayGPS()
-        {
-            Latitude = getParameterByName('Latitude');
-            Longitude = getParameterByName('Longitude');
-            //alert('Latitude=' + Latitude + ' and Longitude=' + Longitude);
-        }
     </script>
     <!-- https://blog.prototypr.io/make-a-camera-web-app-tutorial-part-1-ec284af8dddf -->
     <meta charset="utf-8">
@@ -29,11 +26,11 @@
     <!-- Link to your main style sheet-->
     <link rel="stylesheet" href="camera.css">
 </head>
-<body onload="displayGPS()">
+<body>
     <!-- Camera -->
     <main id="camera">
-        <!-- Camera sensor -->
-        <canvas id="camera--sensor"></canvas>
+        <!-- Camera canvas -->
+        <canvas id="camera--canvas"></canvas>
         <!-- Camera view -->
         <video id="camera--view" autoplay playsinline></video>
         <!-- Camera output -->
