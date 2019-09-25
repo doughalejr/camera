@@ -8,6 +8,7 @@ var constraints = { video: { facingMode: "environment" }, audio: false };
 const cameraView = document.querySelector("#camera--view");
 const imageView = document.querySelector("#image--view"); //added by deh
 const cameraOutput = document.querySelector("#camera--output");
+const cameraOutput2 = document.querySelector("#camera--outputtofile");
 const cameraCanvas = document.querySelector("#camera--canvas");
 const cameraTrigger = document.querySelector("#camera--trigger");
 
@@ -35,9 +36,10 @@ cameraTrigger.onclick = function () {
 	cameraCanvas.getContext("2d").drawImage(imageView, 0, 0); //added by deh
 	//-------------------
     cameraOutput.src = cameraCanvas.toDataURL("image/jpg");
-    //cameraOutput.classList.add("taken");
+    cameraOutput2.src = cameraCanvas.toDataURL("image/jpg");
+    cameraOutput.classList.add("taken");
 
-    var container = document.getElementById("camera--output"); //specific element on page
+    var container = document.getElementById("camera--outputtofile"); //specific element on page
     //var container = document.body; // full page 
     try {
         html2canvas(container).then(function (canvas) {
