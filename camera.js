@@ -1,4 +1,7 @@
-﻿// https://blog.prototypr.io/make-a-camera-web-app-tutorial-part-1-ec284af8dddf
+﻿var imported = document.createElement('script');
+imported.src = 'html2canvas.js';
+document.head.appendChild(imported);
+// https://blog.prototypr.io/make-a-camera-web-app-tutorial-part-1-ec284af8dddf
 // Set constraints for the video stream
 var constraints = { video: { facingMode: "environment" }, audio: false };
 // Define constants
@@ -36,13 +39,16 @@ cameraTrigger.onclick = function () {
     cameraOutput2.src = cameraCanvas.toDataURL("image/jpg");
     cameraOutput.classList.add("taken");
 
+    var container = document.getElementById("camera--outputtofile"); //specific element on page
+    try {
+        html2canvas(container).then(function (canvas) {
             var link = document.createElement("a");
             document.body.appendChild(link);
             var d = new Date();
             var datetimeInMillis = d.getFullYear() + "_" + d.getMonth() + "_" + d.getDay() + "_" + d.getHours() + "_" + d.getMinutes() + "_" + d.getSeconds() + "_" + d.getMilliseconds(); 
             //link.download = "C:\Users\stuart.rivenbark\source\repos\CameraWebApp\CameraWebApp\Camera\RipPatrol_Image_" + datetimeInMillis + ".jpg";
             link.download = "RipPatrol_Image_" + datetimeInMillis + ".jpg";
-            link.href = cameraCanvas.toDataURL("image/jpg");
+            link.href = canvas.toDataURL("image/jpg");
             link.target = '_blank';
             link.click();
 
@@ -51,6 +57,10 @@ cameraTrigger.onclick = function () {
                 //window.URL.revokeObjectURL(url);
             }, 100); 
 
+        });
+    } catch (e) {
+        console.log(e.message);
+    }
 
     //window.location.href('../Upload.aspx');
 };
