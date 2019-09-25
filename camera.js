@@ -30,11 +30,11 @@ cameraTrigger.onclick = function () {
     //cameraCanvas.height = cameraView.videoHeight;
     //cameraCanvas.getContext("2d").drawImage(cameraView, 0, 0);
 	//-------------------
-    cameraCanvas.width = imageView.width;
-    cameraCanvas.height = imageView.height;
+    cameraCanvas.width = imageView.width;//added by deh
+    cameraCanvas.height = imageView.height;//added by deh
 	cameraCanvas.getContext("2d").drawImage(imageView, 0, 0); //added by deh
 	//-------------------
-    cameraOutput.src = cameraCanvas.toDataURL("image/webp");
+    cameraOutput.src = cameraCanvas.toDataURL("image/jpg");
     cameraOutput.classList.add("taken");
 
     var container = document.getElementById("camera--output"); //specific element on page
