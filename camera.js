@@ -6,8 +6,10 @@ document.head.appendChild(imported);
 var constraints = { video: { facingMode: "environment" }, audio: false };
 // Define constants
 const cameraView = document.querySelector("#camera--view");
+const imageView = document.querySelector("#image--view"); //added by deh
 const cameraOutput = document.querySelector("#camera--output");
-const cameraSensor = document.querySelector("#camera--sensor");
+const cameraOutput2 = document.querySelector("#camera--outputtofile"); //added by deh
+const cameraCanvas = document.querySelector("#camera--canvas");
 const cameraTrigger = document.querySelector("#camera--trigger");
 
 // Access the device camera and stream to cameraView
@@ -25,14 +27,19 @@ function cameraStart() {
 
 // Take a picture when cameraTrigger is tapped
 cameraTrigger.onclick = function () {
-    cameraSensor.width = cameraView.videoWidth;
-    cameraSensor.height = cameraView.videoHeight;
-    cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
-    cameraOutput.src = cameraSensor.toDataURL("image/webp");
+    cameraCanvas.width = cameraView.videoWidth;
+    cameraCanvas.height = cameraView.videoHeight;
+    cameraCanvas.getContext("2d").drawImage(cameraView, 0, 0);
+	//-------------------
+    //cameraCanvas.width = imageView.width;//added by deh
+    //cameraCanvas.height = imageView.height;//added by deh
+	//cameraCanvas.getContext("2d").drawImage(imageView, 0, 0); //added by deh
+	//-------------------
+    cameraOutput.src = cameraCanvas.toDataURL("image/jpg");
+    cameraOutput2.src = cameraCanvas.toDataURL("image/jpg");
     cameraOutput.classList.add("taken");
 
-    var container = document.getElementById("camera--output"); //specific element on page
-    //var container = document.body; // full page 
+    var container = document.getElementById("camera--outputtofile"); //specific element on page
     try {
         html2canvas(container).then(function (canvas) {
             var link = document.createElement("a");
@@ -59,29 +66,3 @@ cameraTrigger.onclick = function () {
 };
 // Start the video stream when the window loads
 window.addEventListener("load", cameraStart, false);
-
-//Adding GPS properties to file in Javascript
-//http://rz.scale-it.pl/2012/01/02/how_to_add_gps__geolocation__tags_to_photos.html
-//https://stackoverflow.com/questions/31628534/get-coordinates-from-photo-with-javascript
-//https://github.com/exif-js/exif-js
-//https://stackoverflow.com/questions/20279620/is-there-any-javascript-library-to-modify-exif-information-of-image
-//1) https://github.com/blueimp/JavaScript-Load-Image
-//2) 
-//https://stackoverflow.com/questions/41318487/adding-metadata-to-html5-file-upload
-//
-//C#
-//https://www.codeproject.com/Questions/815338/Inserting-GPS-tags-into-jpeg-EXIF-metadata-using-n
-//1) https://searchcode.com/codesearch/view/8739374/
-//2) https://blogs.msdn.microsoft.com/kamalds/2012/04/08/working-with-exif-metadata/
-//GeoTagging
-//http://geotag.sourceforge.net/Requirements/
-//https://codeflow.org/tags/geotagging.html
-//https://www.paintshoppro.com/en/pages/geotag-photos/
-//JavaScript
-//https://www.javascripture.com/File
-//
-//Maybe I can hand the Lat - Lng as QueryStrings on the upload, and if present, just use them instead of parsing the file's properties
-//
-//Good basci camera article:
-//https://www.webcodegeeks.com/html5/html5-web-camera-example/
-
