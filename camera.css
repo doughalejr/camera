@@ -5,7 +5,14 @@
     width: 100%;
 }
 
-#camera--view, #camera--canvas, #camera--output, #image--view {
+#camera, #camera--view, #camera--sensor, #camera--output {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+#camera--view, #camera--sensor, #camera--output {
     transform: scaleX(-1);
     filter: FlipH;
 }
@@ -28,6 +35,7 @@
 .taken {
     height: 100px !important;
     width: 100px !important;
+    transition: all 0.5s ease-in;
     border: solid 3px white;
     box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
     top: 20px;
