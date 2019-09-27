@@ -12,15 +12,10 @@
             return decodeURIComponent(results[2].replace(/\+/g, ' '));
         }
 
-        var Latitude;
-        var Longitude;
+		var latitude = getParameterByName("lat");
+		var longitude = getParameterByName("lon");
+		//alert('Latitude=' + latitude + ' and Longitude=' + longitude);
 
-        function displayGPS()
-        {
-            Latitude = getParameterByName('Latitude');
-            Longitude = getParameterByName('Longitude');
-            alert('Latitude=' + Latitude + ' and Longitude=' + Longitude);
-        }
     </script>
     <!-- https://blog.prototypr.io/make-a-camera-web-app-tutorial-part-1-ec284af8dddf -->
     <meta charset="utf-8">
