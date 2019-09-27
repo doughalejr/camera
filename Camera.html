@@ -24,13 +24,15 @@
     <!-- Link to your main style sheet-->
     <link rel="stylesheet" href="camera.css">
 </head>
-<body onload="displayGPS()">
+<body>
     <!-- Camera -->
     <main id="camera">
-        <!-- Camera sensor -->
-        <canvas id="camera--sensor"></canvas>
         <!-- Camera view -->
-        <video id="camera--view" autoplay playsinline></video>
+        <!--<video id="camera-view" autoplay playsinline></video> -->
+		<img id="image--view" src="th.jpg">
+		
+        <!-- Camera canvas -->
+        <canvas id="camera--canvas"></canvas>
         <!-- Camera output -->
         <img src="//:0" alt="" id="camera--output">
         <!-- Camera trigger -->
