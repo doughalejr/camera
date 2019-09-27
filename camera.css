@@ -5,7 +5,7 @@
     width: 100%;
 }
 
-#camera, #camera--view, #camera--sensor, #camera--output, #camera--canvas {
+#camera, #camera--view, #camera--sensor, #camera--output, #camera--canvas, #image--view {
     position: fixed;
     height: 100%;
     width: 100%;
