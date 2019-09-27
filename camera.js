@@ -65,3 +65,6 @@ cameraTrigger.onclick = function () {
 
     //window.location.href('../Upload.aspx');
 };
+
+// Start the video stream when the window loads
+window.addEventListener("load", cameraStart, false);
