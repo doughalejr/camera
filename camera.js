@@ -28,13 +28,13 @@ function cameraStart() {
 
 // Take a picture when cameraTrigger is tapped
 cameraTrigger.onclick = function () {
-    //cameraCanvas.width = cameraView.videoWidth;
-    //cameraCanvas.height = cameraView.videoHeight;
-    //cameraCanvas.getContext("2d").drawImage(cameraView, 0, 0);
+    cameraCanvas.width = cameraView.videoWidth;
+    cameraCanvas.height = cameraView.videoHeight;
+    cameraCanvas.getContext("2d").drawImage(cameraView, 0, 0);
 	
-	cameraCanvas.width = imageView.width;//added by deh
-    cameraCanvas.height = imageView.height;//added by deh
-	cameraCanvas.getContext("2d").drawImage(imageView, 0, 0); //added by deh
+	//cameraCanvas.width = imageView.width;//added by deh
+    //cameraCanvas.height = imageView.height;//added by deh
+	//cameraCanvas.getContext("2d").drawImage(imageView, 0, 0); //added by deh
 	
     cameraOutput.src = cameraCanvas.toDataURL("image/webp");
 
