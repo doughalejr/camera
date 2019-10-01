@@ -6,10 +6,18 @@
 }
 
 #camera, #camera--view, #camera--sensor, #camera--output, #camera--canvas, #image--view {
-    position: fixed;
-    height: 100%;
-    width: 100%;
+
     object-fit: cover;
+}
+
+#camera--view{
+	border: 5px solid lightgreen;
+}
+#camera--canvas{
+	border: 5px dashed lightgreen;
+}
+#camera--output{
+	border: 5px double lightgreen;
 }
 
 #camera--view, #camera--sensor, #camera--output {
