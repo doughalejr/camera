@@ -11,7 +11,7 @@ const cameraCanvas = document.querySelector("#camera--canvas");
 const cameraTrigger = document.querySelector("#camera--trigger");
 
 
-const imageView = document.querySelector("#image-view"); //added by deh
+const imageView = document.querySelector("#image-input"); //added by deh
 
 // Access the device camera and stream to cameraView
 function cameraStart() {
