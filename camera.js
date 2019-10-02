@@ -5,7 +5,7 @@ document.head.appendChild(imported);
 // Set constraints for the video stream
 var constraints = { video: { facingMode: "environment" }, audio: false };
 // Define constants
-const cameraView = document.querySelector("#camera--view");
+const cameraView = document.querySelector("#camera-input");
 const cameraOutput = document.querySelector("#camera--output");
 const cameraCanvas = document.querySelector("#camera--canvas");
 const cameraTrigger = document.querySelector("#camera--trigger");
@@ -28,13 +28,16 @@ function cameraStart() {
 
 // Take a picture when cameraTrigger is tapped
 cameraTrigger.onclick = function () {
-    //cameraCanvas.width = cameraView.videoWidth;
-    //cameraCanvas.height = cameraView.videoHeight;
-    //cameraCanvas.getContext("2d").drawImage(cameraView, 0, 0);
 	
-	cameraCanvas.width = imageView.width;//added by deh
-    cameraCanvas.height = imageView.height;//added by deh
-	cameraCanvas.getContext("2d").drawImage(imageView, 0, 0); //added by deh
+	if  (isMobile) {
+		cameraCanvas.width = cameraView.videoWidth;
+		cameraCanvas.height = cameraView.videoHeight;
+		cameraCanvas.getContext("2d").drawImage(cameraView, 0, 0);
+	}else{	
+		cameraCanvas.width = imageView.width;//added by deh
+		cameraCanvas.height = imageView.height;//added by deh
+		cameraCanvas.getContext("2d").drawImage(imageView, 0, 0); //added by deh
+	}
 	
     cameraOutput.src = cameraCanvas.toDataURL("image/webp");
 
