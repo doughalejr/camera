@@ -10,7 +10,7 @@
     object-fit: cover;
 }
 
-#camera--view{
+#camera--view, #camera-input, #image_input{
 	border: 5px solid lightgreen;
 }
 #camera--canvas{
